@@ -17,6 +17,11 @@ class AppRunner {
             print("Please supply strings to be used for the name")
             return
         }
+
+        //TODO: support suffix argument
+        var name = ""
+        for x in args { name += x }
+        print(AppRunner.purposeName(name))
     }
 
     static func purposeName(name: String, ofType suffix: String = "md") -> String {
