@@ -13,9 +13,10 @@ class AppRunner {
 
   static func purposeName(name: String, ofType suffix: String = "md") -> String {
     let renamed = name
-    //jlet joined = args.joinWithSeparator("-")
-      //joined.lowercaseString
-      return "\(renamed).\(suffix)"
+      if suffix.contains(".") {
+        return "\(renamed)\(suffix)"
+      }
+    return "\(renamed).\(suffix)"
   }
 }
 

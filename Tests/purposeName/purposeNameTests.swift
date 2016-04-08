@@ -6,4 +6,14 @@ class purposeNameTests: XCTestCase {
     let result = AppRunner.purposeName("README")
       XCTAssertEqual(result, "README.md")
   }
+
+  func testJPGSuffix() {
+    let result = AppRunner.purposeName("beach", ofType: "JPG")
+      XCTAssertEqual(result, "beach.JPG")
+  }
+
+  func testPNGSuffixWithExtraPeriod() {
+    let result = AppRunner.purposeName("stars", ofType: ".PNG")
+      XCTAssertEqual(result, "stars.PNG")
+  }
 }
