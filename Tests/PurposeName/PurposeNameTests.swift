@@ -1,7 +1,7 @@
-@testable import purposeName
+@testable import PurposeName
 import XCTest
 
-class purposeNameTests: XCTestCase {
+class PurposeNameTests: XCTestCase {
     func testNoSuffix() {
         let result = AppRunner.purposeName("README")
         XCTAssertEqual(result, "README.md")
@@ -30,7 +30,7 @@ class purposeNameTests: XCTestCase {
 }
 
 #if os(Linux)
-extension purposeNameTests: XCTestCaseProvider {
+extension PurposeNameTests: XCTestCaseProvider {
   var allTests : [(String, () throws -> Void)] {
     return [
       ("testNoSuffix", testNoSuffix),
