@@ -22,3 +22,17 @@ class purposeNameTests: XCTestCase {
         XCTAssertEqual(result, "stars-are-aligned.md")
     }
 }
+
+#if os(Linux)
+extension purposeNameTests: XCTestCaseProvider {
+  var allTests : [(String, () throws -> Void)] {
+    return [
+      ("testNoSuffix", testNoSuffix),
+      ("testJPGSuffix", testJPGSuffix),
+      ("testPNGSuffixWithExtraPeriod", testPNGSuffixWithExtraPeriod),
+      ("testWhitespace", testWhitespace),
+      ("testSuffixArgumentIsUsed", testSuffixArgumentIsUsed),
+      ]
+  }
+}
+#endif
