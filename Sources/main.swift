@@ -2,8 +2,8 @@ import Foundation
 
 extension String {
     func replace(a: Character, with: Character) -> String {
-        let replaced = String(self.characters.split(a)
-        .joinWithSeparator([with]))
+        let replaced = String(self.characters.split(separator: a)
+        .joined(separator: [with]))
         return replaced
     }
 }
