@@ -21,6 +21,12 @@ class purposeNameTests: XCTestCase {
         let result = AppRunner.purposeName("stars are aligned")
         XCTAssertEqual(result, "stars-are-aligned.md")
     }
+
+    func testSuffixArgumentIsUsed() {
+      let input = ["processName", "1", "--suffix txt"]
+      let result = AppRunner.purposeName(input)
+      XCTAssertEqual(result, "1.txt")
+    }
 }
 
 #if os(Linux)
