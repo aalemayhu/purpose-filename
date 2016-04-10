@@ -31,10 +31,10 @@ class AppRunner {
     static func purposeName(name: String, ofType suffix: String = "md") -> String {
         var renamed = name
 
-        if name.containsString(" ") {
+        if name.contains(" ") {
             renamed = name.replace(" ", with: "-")
         }
-        if suffix.containsString(".") {
+        if suffix.contains(".") {
             return "\(renamed)\(suffix)"
         }
         return "\(renamed).\(suffix)"
