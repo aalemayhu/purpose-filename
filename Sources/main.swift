@@ -8,7 +8,7 @@ extension String {
     }
 }
 
-class AppRunner {
+class AAMain {
     func run() {
         // The first element is the application name, which we don't care about in
         // this case.
@@ -18,14 +18,14 @@ class AppRunner {
             return
         }
 
-        print(AppRunner.purposeName(args))
+        print(AAMain.purposeName(args))
     }
 
     static func purposeName(args: [String]) -> String {
         //TODO: support suffix argument
         var name = ""
         for x in args { name += x }
-        return AppRunner.purposeName(name)
+        return AAMain.purposeName(name)
     }
 
     static func purposeName(name: String, ofType suffix: String = "md") -> String {
@@ -41,5 +41,5 @@ class AppRunner {
     }
 }
 
-let a = AppRunner()
+let a = AAMain()
 a.run()

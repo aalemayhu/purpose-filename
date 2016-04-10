@@ -3,28 +3,28 @@ import XCTest
 
 class PurposeNameTests: XCTestCase {
     func testNoSuffix() {
-        let result = AppRunner.purposeName("README")
+        let result = AAMain.purposeName("README")
         XCTAssertEqual(result, "README.md")
     }
 
     func testJPGSuffix() {
-        let result = AppRunner.purposeName("beach", ofType: "JPG")
+        let result = AAMain.purposeName("beach", ofType: "JPG")
         XCTAssertEqual(result, "beach.JPG")
     }
 
     func testPNGSuffixWithExtraPeriod() {
-        let result = AppRunner.purposeName("stars", ofType: ".PNG")
+        let result = AAMain.purposeName("stars", ofType: ".PNG")
         XCTAssertEqual(result, "stars.PNG")
     }
 
     func testWhitespace() {
-        let result = AppRunner.purposeName("stars are aligned")
+        let result = AAMain.purposeName("stars are aligned")
         XCTAssertEqual(result, "stars-are-aligned.md")
     }
 
     func testSuffixArgumentIsUsed() {
       let input = ["processName", "1", "--suffix txt"]
-      let result = AppRunner.purposeName(input)
+      let result = AAMain.purposeName(input)
       XCTAssertEqual(result, "1.txt")
     }
 }
