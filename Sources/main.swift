@@ -18,17 +18,17 @@ class AAMain {
             return
         }
 
-        print(AAMain.purposeName(args))
+        print(AAMain.rename(args))
     }
 
-    static func purposeName(args: [String]) -> String {
+    static func rename(args: [String]) -> String {
         //TODO: support suffix argument
         var name = ""
         for x in args { name += x }
-        return AAMain.purposeName(name)
+        return AAMain.rename(name)
     }
 
-    static func purposeName(name: String, ofType suffix: String = "md") -> String {
+    static func rename(name: String, ofType suffix: String = "md") -> String {
         var renamed = name
 
         if name.contains(" ") {
