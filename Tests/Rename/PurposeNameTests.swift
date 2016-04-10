@@ -1,4 +1,4 @@
-@testable import PurposeName
+@testable import Rename
 import XCTest
 
 class PurposeNameTests: XCTestCase {
