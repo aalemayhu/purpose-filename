@@ -1,4 +1,5 @@
 import Foundation
+import String
 
 extension String {
     func replace(a: Character, with: Character) -> String {
@@ -6,6 +7,8 @@ extension String {
             .joined(separator: [with]))
         return replaced
     }
+    
+    
 }
 
 class AAMain {
@@ -18,14 +21,32 @@ class AAMain {
         print(AAMain.use(arguments: args))
     }
     
+    // Used some code from: https://github.com/apple/swift-corelibs-foundation/blob/master/Tools/plutil/main.swift#L68
+    static func parse(arguments args: [String]) -> (name: String, suffix: String){
+        var name = ""
+        var suffix = ""
+        var iterator = args.makeIterator()
+        while let arg = iterator.next() {
+            
+            if arg == "--suffix" || arg.contains("--suffix") {
+                suffix += arg
+            } else {
+                name += "\(arg)"
+            }
+            
+        }        
+        suffix.replace(string: "--suffix", with: "")
+        suffix = suffix.trimmingCharacters(in: .whitespacesAndNewlines())
+        return (name, suffix)
+    }
+    
+    
     static func use(arguments argv: [String]) -> String {
-        //TODO: support suffix argument
         // The first element is the application name, which we don't care about in
         // this case.
         let args = Array(argv.dropFirst())
-        var name = ""
-        for x in args { name += x }
-        return AAMain.rename(name: name)
+        let input = AAMain.parse(arguments: args)
+        return AAMain.rename(name: input.name, ofType: input.suffix)
     }
     
     static func rename(name: String, ofType suffix: String = "md") -> String {
