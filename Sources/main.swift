@@ -28,7 +28,7 @@ class AAMain {
         var iterator = args.makeIterator()
         while let arg = iterator.next() {
             
-            if arg == "--suffix" || arg.contains("--suffix") {
+            if arg == "--suffix" || arg.contains(string: "--suffix") {
                 suffix += arg
             } else {
                 name += "\(arg)"
@@ -36,7 +36,7 @@ class AAMain {
             
         }        
         suffix.replace(string: "--suffix", with: "")
-        suffix = suffix.trimmingCharacters(in: .whitespacesAndNewlines())
+        suffix = suffix.trim()
         return (name, suffix)
     }
     
@@ -52,10 +52,10 @@ class AAMain {
     static func rename(name: String, ofType suffix: String = "md") -> String {
         var renamed = name
         
-        if name.contains(" ") {
+        if name.contains(string: " ") {
             renamed = name.replace(a: " ", with: "-")
         }
-        if suffix.contains(".") {
+        if suffix.contains(string: ".") {
             return "\(renamed)\(suffix)"
         }
         return "\(renamed).\(suffix)"
