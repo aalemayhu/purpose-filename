@@ -24,7 +24,7 @@ class PurposeNameTests: XCTestCase {
     
     func testSuffixArgumentIsUsed() {
         let input = ["processName", "1", "--suffix txt"]
-        let result = AAMain.rename(withArguments: input)
+        let result = AAMain.use(arguments: input)
         XCTAssertEqual(result, "1.txt")
     }
 }

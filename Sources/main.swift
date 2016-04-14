@@ -18,10 +18,10 @@ class AAMain {
             return
         }
         
-        print(AAMain.rename(withArguments: args))
+        print(AAMain.use(arguments: args))
     }
     
-    static func rename(withArguments args: [String]) -> String {
+    static func use(arguments args: [String]) -> String {
         //TODO: support suffix argument
         var name = ""
         for x in args { name += x }
