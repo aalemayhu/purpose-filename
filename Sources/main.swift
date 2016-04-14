@@ -18,21 +18,21 @@ class AAMain {
             return
         }
 
-        print(AAMain.rename(args))
+        print(AAMain.rename(withArguments: args))
     }
 
-    static func rename(args: [String]) -> String {
+    static func rename(withArguments args: [String]) -> String {
         //TODO: support suffix argument
         var name = ""
         for x in args { name += x }
-        return AAMain.rename(name)
+        return AAMain.rename(name: name)
     }
 
     static func rename(name: String, ofType suffix: String = "md") -> String {
         var renamed = name
 
         if name.contains(" ") {
-            renamed = name.replace(" ", with: "-")
+            renamed = name.replace(a: " ", with: "-")
         }
         if suffix.contains(".") {
             return "\(renamed)\(suffix)"
