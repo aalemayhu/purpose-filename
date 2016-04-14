@@ -1,7 +1,6 @@
+@testable import RenameTestSuite
 import XCTest
 
-@testable import purposeName
-
 XCTMain([
-    PurposeNameTests(),
+    testCase(PurposeNameTests.allTests),
 ])

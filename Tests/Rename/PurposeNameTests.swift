@@ -29,16 +29,14 @@ class PurposeNameTests: XCTestCase {
     }
 }
 
-#if os(Linux)
-    extension PurposeNameTests {
-        var allTests : [(String, () throws -> Void)] {
-            return [
-                       ("testNoSuffix", testNoSuffix),
-                       ("testJPGSuffix", testJPGSuffix),
-                       ("testPNGSuffixWithExtraPeriod", testPNGSuffixWithExtraPeriod),
-                       ("testWhitespace", testWhitespace),
-                       ("testSuffixArgumentIsUsed", testSuffixArgumentIsUsed),
-            ]
-        }
-    }
-#endif
+extension PurposeNameTests {
+  static var allTests : [(String, PurposeNameTests -> () throws -> Void)] {
+    return [
+      ("testNoSuffix", testNoSuffix),
+      ("testJPGSuffix", testJPGSuffix),
+      ("testPNGSuffixWithExtraPeriod", testPNGSuffixWithExtraPeriod),
+      ("testWhitespace", testWhitespace),
+      ("testSuffixArgumentIsUsed", testSuffixArgumentIsUsed),
+      ]
+  }
+}
