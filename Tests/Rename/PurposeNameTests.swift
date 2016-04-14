@@ -30,7 +30,7 @@ class PurposeNameTests: XCTestCase {
 }
 
 #if os(Linux)
-    extension PurposeNameTests: XCTestCaseProvider {
+    extension PurposeNameTests {
         var allTests : [(String, () throws -> Void)] {
             return [
                        ("testNoSuffix", testNoSuffix),
