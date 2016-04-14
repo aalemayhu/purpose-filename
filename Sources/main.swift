@@ -10,19 +10,19 @@ extension String {
 
 class AAMain {
     func run() {
-        // The first element is the application name, which we don't care about in
-        // this case.
-        let args = Array(Process.arguments.dropFirst())
-        guard args.count > 0 else {
+        let args = Process.arguments
+        guard args.count > 1 else {
             print("Please supply strings to be used for the name")
             return
         }
-        
         print(AAMain.use(arguments: args))
     }
     
-    static func use(arguments args: [String]) -> String {
+    static func use(arguments argv: [String]) -> String {
         //TODO: support suffix argument
+        // The first element is the application name, which we don't care about in
+        // this case.
+        let args = Array(argv.dropFirst())
         var name = ""
         for x in args { name += x }
         return AAMain.rename(name: name)
