@@ -4,5 +4,5 @@ all:
 clean:
 	swift build --clean
 
-test:
+test: clean build
 	swift test
